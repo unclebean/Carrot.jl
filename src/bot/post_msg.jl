@@ -1,14 +1,8 @@
-using ConfParser, HTTP, JSON2
-
-conf = ConfParse("confs/config.ini")
-parse_conf!(conf)
-
-token     = retrieve(conf, "telegram", "token")
-chat_id   = retrieve(conf, "telegram", "chat_id")
+using HTTP, JSON2
 
 function post_forex_prediction()::Int64
-    request_query = create_request_text(chat_id, "hello")
-    return telegram_request(token, request_query)
+    request_query = create_request_text(CarrotConfig["telegram_chat_id"], "hello")
+    return telegram_request(CarrotConfig["telegram_token"], request_query)
 end
 
 function create_request_text(id, text; message_id = "")::String

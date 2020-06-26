@@ -1,4 +1,5 @@
 using HTTP, JSON2
+using Mocking
 
 function getForexAPI(endpoint::String)
     return "https://api-fxtrade.oanda.com/$endpoint"
@@ -14,7 +15,7 @@ function getHeaders()
 end
 
 function getAccounts()
-    resp = HTTP.request(
+    resp = @mock HTTP.request(
         "GET",
         getForexAPI("v3/accounts"),
         getHeaders();
@@ -29,7 +30,7 @@ function getCandles(
     count::Int64 = 1500,
     complete::Bool = true,
 )
-    resp = HTTP.request(
+    resp = @mock HTTP.request(
         "GET",
         getForexAPI("v3/instruments/$symbol/candles"),
         getHeaders();

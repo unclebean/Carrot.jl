@@ -3,6 +3,11 @@ uuid = "07c4e48b-4f86-433e-a58f-253b40ff8b84"
 authors = ["unclebean"]
 version = "0.1.0"
 
+[deps]
+ConfParser = "88353bc9-fd38-507d-a820-d3b43837d6b9"
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+JSON2 = "2535ab7d-5cd8-5a07-80ac-9b1792aadce3"
+
 [compat]
 julia = "1"
 

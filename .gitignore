@@ -2,5 +2,6 @@
 *.jl.cov
 *.jl.mem
 Manifest.toml
-confs/
+confs/config.ini
+!test/confs/
 logs/

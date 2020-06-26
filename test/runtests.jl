@@ -1,5 +1,6 @@
 using Carrot
 using Test
+include("./bot/post_msg_tests.jl")
 
 @testset "launch" begin
     @test "batch bot" == Carrot.launch("batchBot")

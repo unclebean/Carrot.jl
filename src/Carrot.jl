@@ -1,5 +1,10 @@
 module Carrot
 
+include("./bot/post_msg.jl")
+
+# post_msg.jl
+export post_forex_prediction, create_request_text
+
 @enum Features batchBot forexPredict web
 
 function get_feature_mappings()::Dict
@@ -11,6 +16,7 @@ function get_feature_mappings()::Dict
 end
 
 function launch(command::String)
+    @info "command is $command"
     features = get_feature_mappings()
     if haskey(features, command)
         feature = features[command]
